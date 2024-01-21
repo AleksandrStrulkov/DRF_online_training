@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_dump_load_utf8',
-    'rest_framework'
+    'rest_framework',
+    'online_training',
+    'users'
 ]
 
 MIDDLEWARE = [
@@ -155,3 +157,8 @@ if CASH_ENABLE:
             "LOCATION": os.getenv("CACHE_LOCATION")
         }
     }
+
+AUTH_USER_MODEL = 'users.User'
+LOGOUT_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = 'users:login'
