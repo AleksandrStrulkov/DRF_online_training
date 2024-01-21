@@ -11,7 +11,7 @@ class User(AbstractUser):
 
 	avatar = models.ImageField(upload_to='users/', verbose_name='Аватар', **NULLABLE)
 	phone = models.CharField(max_length=15, verbose_name='Номер телефона', **NULLABLE)
-	is_activated = models.BooleanField(default=True, db_index=True, verbose_name='Прошел активацию?')
+	# is_activated = models.BooleanField(default=True, db_index=True, verbose_name='Прошел активацию?')
 
 	USERNAME_FIELD = 'email'
 	REQUIRED_FIELDS = []
