@@ -425,6 +425,17 @@ hiredis = ["hiredis (>=1.0.0)"]
 ocsp = ["cryptography (>=36.0.1)", "pyopenssl (==20.0.1)", "requests (>=2.26.0)"]
 
 [[package]]
+name = "routers"
+version = "0.10.1"
+description = "Cli to handle config router"
+optional = false
+python-versions = "*"
+files = [
+    {file = "routers-0.10.1-py3-none-any.whl", hash = "sha256:8b2b15d8c9f5b5a4c979508ba199377bb1883e537d3515f012d6811356e68b75"},
+    {file = "routers-0.10.1.tar.gz", hash = "sha256:47c9af347f3c5d7f1590b9f1084ea09a56a91b7c4705756d46c30f262d6c640a"},
+]
+
+[[package]]
 name = "six"
 version = "1.16.0"
 description = "Python 2 and 3 compatibility utilities"
@@ -510,4 +521,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "84574c8c019db0d2adb1fa4fc5876a713dce824e21e364eef6babb13e13925d6"
+content-hash = "20e34ce9bb6a8110a64c1282b84349ad5a7d1bffad39b4bc6938e95af8a36e33"

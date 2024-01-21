@@ -16,6 +16,7 @@ django-dump-load-utf8 = "^0.0.4"
 redis = "^5.0.1"
 python-dotenv = "^1.0.0"
 djangorestframework = "^3.14.0"
+routers = "^0.10.1"
 
 
 [build-system]
