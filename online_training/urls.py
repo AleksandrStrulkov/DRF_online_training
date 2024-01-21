@@ -3,18 +3,13 @@ from rest_framework import routers
 
 from online_training.apps import OnlineTrainingConfig
 from online_training.views.course import CourseViewSet
-from online_training.views.lesson import LessonCreateView, LessonListView, LessonDetailView, LessonUpdateView, \
-	LessonDeleteView
+from online_training.views.lesson import APILessonDetail, APILesson
 
 app_name = OnlineTrainingConfig.name
 
 urlpatterns = [
-	path('api/lesson/create/', LessonCreateView.as_view(), name='lesson-create'),
-	path('api/lesson/', LessonListView.as_view(), name='lesson-list'),
-	path('api/lesson/<int:pk>/', LessonDetailView.as_view(), name='lesson-get'),
-	path('api/lesson/update/<int:pk>/', LessonUpdateView.as_view(), name='lesson-update'),
-	path('api/lesson/delete/<int:pk>/', LessonDeleteView.as_view(), name='lesson-delete'),
-
+	path('api/lesson/', APILesson.as_view()),
+	path('api/lesson/<int:pk>/', APILessonDetail.as_view()),
 ]
 
 router = routers.SimpleRouter()
