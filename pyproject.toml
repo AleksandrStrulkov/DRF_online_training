@@ -17,6 +17,7 @@ redis = "^5.0.1"
 python-dotenv = "^1.0.0"
 djangorestframework = "^3.14.0"
 routers = "^0.10.1"
+django-filter = "^23.5"
 
 
 [build-system]

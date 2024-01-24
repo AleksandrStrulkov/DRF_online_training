@@ -4,9 +4,9 @@
     "pk": 1,
     "fields":{
       "user": 2,
-      "date_payment": "2023-03-07",
+      "date_payment": "2023-01-07",
       "payment_course": 3,
-      "payment_amount": 120000,
+      "payment_amount": 60000,
       "payment_method": "Наличные"
     }
   },
@@ -15,9 +15,9 @@
     "pk": 2,
     "fields":{
       "user": 2,
-      "date_payment": "2023-03-07",
+      "date_payment": "2023-02-07",
       "payment_course": 3,
-      "payment_amount": 120000,
+      "payment_amount": 60000,
       "payment_method": "Наличные"
     }
   },
@@ -28,7 +28,7 @@
       "user": 3,
       "date_payment": "2023-03-07",
       "payment_course": 2,
-      "payment_amount": 130000,
+      "payment_amount": 65000,
       "payment_method": "Перевод"
     }
   },
@@ -37,9 +37,9 @@
     "pk": 4,
     "fields":{
       "user": 3,
-      "date_payment": "2023-03-07",
+      "date_payment": "2023-04-07",
       "payment_course": 2,
-      "payment_amount": 130000,
+      "payment_amount": 65000,
       "payment_method": "Перевод"
     }
   },
@@ -48,9 +48,9 @@
     "pk": 5,
     "fields":{
       "user": 3,
-      "date_payment": "2023-03-07",
+      "date_payment": "2023-05-07",
       "payment_course": 2,
-      "payment_amount": 130000,
+      "payment_amount": 15000,
       "payment_method": "Перевод"
     }
   },
@@ -61,7 +61,7 @@
       "user": 4,
       "date_payment": "2023-03-07",
       "payment_course": 1,
-      "payment_amount": 140000,
+      "payment_amount": 70000,
       "payment_method": "Перевод"
     }
   },
@@ -70,9 +70,9 @@
     "pk": 7,
     "fields": {
       "user": 4,
-      "date_payment": "2023-03-07",
+      "date_payment": "2023-04-07",
       "payment_course": 1,
-      "payment_amount": 140000,
+      "payment_amount": 70000,
       "payment_method": "Перевод"
     }
   }

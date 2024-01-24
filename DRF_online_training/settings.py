@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'django_dump_load_utf8',
     'rest_framework',
     'online_training',
-    'users'
+    'users',
+    'django_filters'
 ]
 
 MIDDLEWARE = [
@@ -159,3 +160,9 @@ if CASH_ENABLE:
     }
 
 AUTH_USER_MODEL = 'users.User'
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': (
+        'django_filters.rest_framework.DjangoFilterBackend',
+    ),
+}

@@ -6,9 +6,8 @@ from django.contrib.auth import get_user_model
 NULLABLE = {'blank': True, 'null': True}
 
 PAY_METHOD = (
-		(None, 'Выберите способ оплаты'),
-		('Cash', 'Наличные'),
-		('Transfer', 'Перевод')
+		('Наличные', 'Наличные'),
+		('Перевод', 'Перевод')
 )
 
 
