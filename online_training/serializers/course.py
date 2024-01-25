@@ -10,7 +10,8 @@ from users.models import User
 class CourseSerializer(serializers.ModelSerializer):
 	lessons_count = serializers.SerializerMethodField()
 	lesson = LessonSerializer(read_only=True, many=True)
-	owner = SlugRelatedField(slug_field='email', queryset=User.objects.all())
+	# owner = SlugRelatedField(slug_field='email', queryset=User.objects.all())
+	# owner = serializers.HiddenField(default=serializers.CurrentUserDefault())
 
 	def get_lessons_count(self, obj):
 		if obj.lesson.all():
