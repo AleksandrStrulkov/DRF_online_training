@@ -9,10 +9,12 @@ class UserSerializer(serializers.ModelSerializer):
 
 	class Meta:
 		model = User
-		fields = ("id", "first_name", "email", "payments",)
-		# fields = "__all__"
+		# fields = ("id", "first_name", "email", "payments",)
+		fields = "__all__"
 
 
-
-
+class UserOwnerSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = User
+		fields = ("id", "first_name", "email", )
 
