@@ -1,12 +1,12 @@
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 
 from online_training.models import Lesson
-from online_training.paginators import VehiclePagination
+from online_training.paginators import OnlineTrainingPagination
 from online_training.permissions import IsOwnerOrStaff
 from online_training.serializers.lesson import LessonSerializer
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import OrderingFilter
-from rest_framework.permissions import IsAuthenticated, IsAdminUser
+from rest_framework.permissions import IsAuthenticated, IsAdminUser, AllowAny
 from rest_framework.exceptions import PermissionDenied
 
 
@@ -16,7 +16,7 @@ class APILesson(ListCreateAPIView):
 	filter_backends = [DjangoFilterBackend, OrderingFilter]
 	filterset_fields = ('title', 'course',)
 	permission_classes = [IsAuthenticated]
-	pagination_class = VehiclePagination
+	pagination_class = OnlineTrainingPagination
 
 	def perform_create(self, serializer):
 		new_lesson = serializer.save()
