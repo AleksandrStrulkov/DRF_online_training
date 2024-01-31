@@ -10,8 +10,5 @@ class LessonVideoValidator:
 		# reg = re.compile('https://www.youtube.com')
 		reg = re.compile(r'(https?://)?(www\.)?youtube\.(com)/watch\?v=([\w-]+)(&.*?)?')
 		tmp_value = dict(value).get(self.field)
-		print(tmp_value)
 		if not bool(reg.match(tmp_value)):
-			print(reg.match(tmp_value))
-			print(bool(reg.match(tmp_value)))
 			raise ValidationError("Загружать видео разрешено только с платформы 'youtube'!")

@@ -164,6 +164,17 @@ files = [
 tests = ["asttokens (>=2.1.0)", "coverage", "coverage-enable-subprocess", "ipython", "littleutils", "pytest", "rich"]
 
 [[package]]
+name = "generics"
+version = "6.0.0"
+description = "A classy toolkit designed with OOP in mind."
+optional = false
+python-versions = "*"
+files = [
+    {file = "generics-6.0.0-py2.py3-none-any.whl", hash = "sha256:ed71d45b3422edb601cdcbad6bd5cd81d5909f908725c7530b38d3b8a188bf1e"},
+    {file = "generics-6.0.0.tar.gz", hash = "sha256:4a0390dae5000d17f11624ac6fc465b472201816532b07ae958500b7c2388904"},
+]
+
+[[package]]
 name = "ipython"
 version = "8.20.0"
 description = "IPython: Productive Interactive Computing"
@@ -576,4 +587,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "cbc75ee55c08023dcc7e64eb67777f2a68738f4026e5c0e26dba06b1a11eb308"
+content-hash = "5b9400bd5f0c56c97a57ea54aa0dec6efc2cd8a67342776907d7f84db1ed0461"

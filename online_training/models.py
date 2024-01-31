@@ -78,3 +78,16 @@ class Payments(models.Model):
 	def truncate_table_restart_id(cls):
 		with connection.cursor() as cursor:
 			cursor.execute(f'ALTER SEQUENCE catalog_statusproduct_id_seq RESTART WITH 1;')
+
+
+class Subscription(models.Model):
+	user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, verbose_name='Пользователь', **NULLABLE)
+	course = models.ForeignKey(Course, related_name='subscription', on_delete=models.CASCADE, **NULLABLE)
+	is_active = models.BooleanField(default=False, verbose_name='Подписка', **NULLABLE)
+
+	def __str__(self):
+		return f'{self.user} - {self.course}'
+
+	class Meta:
+		verbose_name = 'подписка'
+		verbose_name_plural = 'подписки'
