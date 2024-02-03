@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'online_training',
     'users',
     'django_filters',
-    'rest_framework_simplejwt'
+    'rest_framework_simplejwt',
+    'drf_yasg'
 ]
 
 MIDDLEWARE = [

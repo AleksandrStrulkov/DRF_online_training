@@ -9,6 +9,7 @@ from online_training.views.subscription import SubscriptionCreateAPIView, Subscr
 
 app_name = OnlineTrainingConfig.name
 
+
 urlpatterns = [
 	path('api/lesson/', APILesson.as_view()),
 	path('api/lesson/<int:pk>/', APILessonDetail.as_view()),
