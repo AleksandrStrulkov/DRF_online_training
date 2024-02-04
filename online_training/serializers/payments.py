@@ -20,4 +20,4 @@ class PaymentsCreateSerializer(serializers.ModelSerializer):
 
 	class Meta:
 		model = Payments
-		fields = ('payment_course', 'payment_method')
+		fields = '__all__'
