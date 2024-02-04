@@ -60,13 +60,15 @@ class Payments(models.Model):
 		get_user_model(), on_delete=models.SET_NULL, verbose_name='Пользователь', **NULLABLE,
 		related_name="payments"
 		)
-	date_payment = models.DateField(verbose_name='Дата оплаты')
+	date_payment = models.DateField(verbose_name='Дата оплаты', auto_now_add=True)
 	payment_course = models.ForeignKey(
 		Course, verbose_name='Оплаченный курс', on_delete=models.CASCADE, **NULLABLE,
 		related_name="payments"
 		)
-	payment_amount = models.IntegerField(verbose_name='Сумма оплаты')
+	payment_amount = models.IntegerField(verbose_name='Сумма оплаты', **NULLABLE)
 	payment_method = models.CharField(choices=PAY_METHOD, default='Cash', max_length=10, verbose_name='Способ оплаты')
+	is_paid = models.BooleanField(default=False, verbose_name='Статус платежа')
+	session_id = models.CharField(max_length=200, verbose_name='Сессия для оплаты', **NULLABLE)
 
 	def __str__(self):
 		return f'{self.user} - {self.date_payment}'

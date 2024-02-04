@@ -13,3 +13,11 @@ class PaymentsSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Payments
 		fields = '__all__'
+
+
+class PaymentsCreateSerializer(serializers.ModelSerializer):
+	payment_course = SlugRelatedField(slug_field='title', queryset=Course.objects.all())
+
+	class Meta:
+		model = Payments
+		fields = ('payment_course', 'payment_method')
