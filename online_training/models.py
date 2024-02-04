@@ -16,6 +16,7 @@ class Course(models.Model):
 	preview = models.ImageField(upload_to='images_course/', verbose_name='Превью', **NULLABLE)
 	description = models.TextField(verbose_name='Описание')
 	owner = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, **NULLABLE)
+	price = models.DecimalField(default=100, max_digits=8, decimal_places=2, verbose_name='Цена курса')
 
 	def __str__(self):
 		return f'{self.title}'
