@@ -191,7 +191,20 @@ STRIPE_API_VERSION = os.getenv('STRIPE_API_VERSION')
 
 CELERY_BROKER_URL = 'redis://127.0.0.1:6379/0'
 CELERY_RESULT_BACKEND = 'redis://127.0.0.1:6379/0'
-# CELERY_TIMEZONE = "Australia/Tasmania"
-# CELERY_TASK_TRACK_STARTED = True
-# CELERY_TASK_TIME_LIMIT = 30 * 60
+CELERY_TIMEZONE = "Europe/Moscow"
+CELERY_TASK_TRACK_STARTED = True
+CELERY_TASK_TIME_LIMIT = 30 * 60
+
+# Настройки для Celery
+CELERY_BEAT_SCHEDULE = {
+    'check_users': {
+        'task': 'online_training.tasks.check_users_last_entrance_task',  # Путь к задаче
+        'schedule': timedelta(minutes=1),  # Расписание выполнения задачи (например, каждый час)
+    },
+    'check_print': {
+        'task': 'online_training.tasks.check_print_task',  # Путь к задаче
+        'schedule': timedelta(seconds=20),  # Расписание выполнения задачи (например, каждый час)
+    },
+}
+
 
