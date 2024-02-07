@@ -6,6 +6,7 @@ from online_training.permissions import IsOwnerOrStaff
 from online_training.serializers.course import CourseSerializer
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.exceptions import PermissionDenied
+from online_training.tasks import message_update_course
 
 
 class CourseViewSet(ModelViewSet):
@@ -26,6 +27,11 @@ class CourseViewSet(ModelViewSet):
 			return Course.objects.filter(owner=self.request.user)
 		else:
 			raise PermissionDenied
+
+	def perform_update(self, serializer):
+		course_id = serializer.save(owner=self.request.user).id
+		message_update_course.delay(course_id)
+
 
 
 
