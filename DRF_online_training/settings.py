@@ -90,9 +90,9 @@ WSGI_APPLICATION = 'DRF_online_training.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dz_drf',
-        'USER': 'postgres',
-        'PASSWORD': os.getenv('PASSWORD_POSTGRES')
+        'NAME': os.getenv('POSTGRES_DB'),
+        'USER': os.getenv('POSTGRES_USER'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD')
     }
 }
 

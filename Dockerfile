@@ -1,10 +1,13 @@
-FROM python:3
-
+FROM python:3 AS poetry
+RUN pip install poetry
 WORKDIR /app
+COPY ./poetry.lock ./pyproject.toml ./
+RUN poetry export -f requirements.txt --output requirements.txt
 
-COPY ./pyproject.toml .
-
-RUN poetry install -r pyproject.toml
-
+FROM python:3
+WORKDIR /app
+COPY --from=poetry /app/requirements.txt .
+RUN pip install -r requirements.txt
 COPY . .
+
 
