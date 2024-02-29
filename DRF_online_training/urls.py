@@ -35,6 +35,7 @@ schema_view = get_schema_view(
 )
 
 urlpatterns = [
+    path('api/v1/drf-auth/', include('rest_framework.urls')),
     path('admin/', admin.site.urls),
     path('', include('online_training.urls', namespace='online_training')),
     path('', include('users.urls', namespace='users')),
