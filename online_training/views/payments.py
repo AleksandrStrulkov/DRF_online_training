@@ -1,10 +1,12 @@
-from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView, get_object_or_404
+from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView, \
+    get_object_or_404
 from online_training.models import Payments
-from online_training.serializers.payments import PaymentsSerializer, PaymentsCreateSerializer
+from online_training.serializers.payments import PaymentsSerializer, \
+    PaymentsCreateSerializer
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework.filters import OrderingFilter, SearchFilter
+from rest_framework.filters import OrderingFilter
 from rest_framework.permissions import IsAuthenticated
-from rest_framework import serializers
+
 
 from online_training.services import get_session, retrieve_session
 
@@ -27,7 +29,6 @@ class PaymentCreateAPIView(CreateAPIView):
     serializer_class = PaymentsCreateSerializer
 
     def perform_create(self, serializer):
-        course = serializer.validated_data.get('payment_course')
         payment = serializer.save()
         payment.user = self.request.user
         if payment.payment_method == 'Перевод':
@@ -44,7 +45,8 @@ class PaymentRetrieveAPIView(RetrieveAPIView):
         obj = get_object_or_404(self.get_queryset(), pk=self.kwargs['pk'])
         if obj.session_id:
             session_id = retrieve_session(obj.session_id)
-            if session_id.payment_status == 'paid' and session_id.status == 'complete':
+            if session_id.payment_status == 'paid' and session_id.status == \
+                    'complete':
                 obj.is_paid = True
                 obj.save()
 

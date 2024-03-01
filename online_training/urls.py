@@ -1,11 +1,12 @@
 from django.urls import path
 from rest_framework import routers
-
 from online_training.apps import OnlineTrainingConfig
 from online_training.views.course import CourseViewSet
 from online_training.views.lesson import APILessonDetail, APILesson
-from online_training.views.payments import APIPayments, PaymentCreateAPIView, PaymentRetrieveAPIView
-from online_training.views.subscription import SubscriptionCreateAPIView, SubscriptionDestroyAPIView
+from online_training.views.payments import APIPayments, PaymentCreateAPIView, \
+    PaymentRetrieveAPIView
+from online_training.views.subscription import SubscriptionCreateAPIView, \
+    SubscriptionDestroyAPIView
 
 app_name = OnlineTrainingConfig.name
 

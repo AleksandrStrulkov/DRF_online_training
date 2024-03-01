@@ -1,12 +1,11 @@
-from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
-
+from rest_framework.generics import ListCreateAPIView, \
+    RetrieveUpdateDestroyAPIView
 from online_training.models import Lesson
 from online_training.paginators import OnlineTrainingPagination
-from online_training.permissions import IsOwnerOrStaff
 from online_training.serializers.lesson import LessonSerializer
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import OrderingFilter
-from rest_framework.permissions import IsAuthenticated, IsAdminUser, AllowAny
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.exceptions import PermissionDenied
 
 
@@ -29,7 +28,8 @@ class APILesson(ListCreateAPIView):
         raise PermissionDenied
 
     def get_queryset(self):
-        if self.request.user.groups.filter(name='moderator') or self.request.user.is_staff:
+        if self.request.user.groups.filter(name='moderator') or \
+                self.request.user.is_staff:
             return Lesson.objects.all()
         elif not self.request.user.groups.filter(name='moderator'):
             return Lesson.objects.filter(owner=self.request.user)
@@ -48,7 +48,8 @@ class APILessonDetail(RetrieveUpdateDestroyAPIView):
         raise PermissionDenied
 
     def get_queryset(self):
-        if self.request.user.groups.filter(name='moderator') or self.request.user.is_staff:
+        if self.request.user.groups.filter(name='moderator') or \
+                self.request.user.is_staff:
             return Lesson.objects.all()
         elif not self.request.user.groups.filter(name='moderator'):
             return Lesson.objects.filter(owner=self.request.user)

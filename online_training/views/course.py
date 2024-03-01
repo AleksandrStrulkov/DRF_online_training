@@ -1,8 +1,6 @@
 from rest_framework.viewsets import ModelViewSet
-
 from online_training.models import Course
 from online_training.paginators import OnlineTrainingPagination
-from online_training.permissions import IsOwnerOrStaff
 from online_training.serializers.course import CourseSerializer
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.exceptions import PermissionDenied
@@ -21,7 +19,8 @@ class CourseViewSet(ModelViewSet):
         new_course.save()
 
     def get_queryset(self):
-        if self.request.user.is_staff or self.request.user.groups.filter(name='moderator'):
+        if self.request.user.is_staff or self.request.user.groups.\
+                filter(name='moderator'):
             return Course.objects.all()
         elif not self.request.user.is_staff:
             return Course.objects.filter(owner=self.request.user)

@@ -4,7 +4,6 @@ from DRF_online_training import settings
 from online_training.models import Subscription, Course
 from django.core.mail import send_mail
 from celery import shared_task
-
 from users.models import User
 
 

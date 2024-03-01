@@ -1,7 +1,8 @@
 from online_training.models import Subscription
 from online_training.serializers.subscription import SubscriptionSerializer
 from rest_framework.permissions import IsAuthenticated
-from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
+from rest_framework.generics import ListCreateAPIView, \
+    RetrieveUpdateDestroyAPIView
 
 
 class SubscriptionCreateAPIView(ListCreateAPIView):
